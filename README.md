@@ -28,12 +28,15 @@ The generated custom reports will be in CSV format.
 4. Activate the virtual environment: `source venv/bin/activate`
 5. Install the project's dependencies: `pip install --editable .`
 
+
 # CLI Usage
-After installing the project in your local environment the `genreport` command will be available. The `genreport` command can be run with 4 arguments: `cisco`, `gitlab`, `nebulon` and `redhat` requiring input CSV filenames and an output CSV filename. Using `-` in place of the output CSV filename can be used to write the output to STDOUT per UNIX conventions.
+After installing the project in your local environment the `genreport` command will be available. The `genreport` command has 2 required arguments:
+    1. input_files - a list of input CSV filenames
+    2. output_file - an output CSV filename generated from the input files.
 
 The project config file is `$PATH_TO_PROJECT/kubecon-reports/config.ini`. The config file used can be overriden using the `--config-file` CLI option.
 
-Run `genreport --help` for more CLI usage info or or `genreport ARGUMENT --help` for more argument-specific CLI usage info.
+Run `genreport --help` for more CLI usage info.
 
 
 

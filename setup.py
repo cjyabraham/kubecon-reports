@@ -12,6 +12,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        genreport=reporting.cli:cli
+        genreport=reporting.cli:genreport
     ''',
 )
