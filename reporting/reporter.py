@@ -6,18 +6,20 @@ import pandas
 from reporting.utils import get_project_root
 
 
-KEY_COLUMN = 'Email_Address'
+KEY_COLUMN = 'EMail_Address'
+
 COLUMNS_IN_ORDER = ['First_Name', 'Last_Name', 'Job_Title', 'Company_Name',
                     KEY_COLUMN, 'Country', 'City', 'State_-_Prov', 'Postal_Code',
-                    'Address', 'Address_2', 'Company_Size', 'Job_Function', 'Industry']
-
+                    'Address_1', 'Address_2', 'Address_3', 'Company_Size', 'Job_Function', 'Industry']
 
 def generate_report(config, input_filenames, output_csv_filename):
     click.echo('Reading input files: ' + ', '.join(input_filenames))
 
-    # calculate a data field containing a subset of emails in all input files
+    # first file should always be either Cisco_RedHat_Keynote, Nebulon_Datasheet or Gitlab_Booth_Tab
+    # in order to match the COLUMNS_IN_ORDER array field names
     master_df = read_first_file(input_filenames.pop(0))
 
+    # calculate a data field containing the intersect of emails in all input files
     for input_filename in input_filenames:
         df = read_next_file(input_filename)
 
