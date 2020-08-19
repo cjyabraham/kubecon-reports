@@ -34,7 +34,7 @@ def generate_report(config, input_filenames, output_csv_filename):
 
     click.echo('Writing output file: ' + output_csv_filename)
 
-    master_df.to_csv(output_csv_filename)
+    master_df.to_csv(output_csv_filename, index=False)
 
 
 def read_first_file(filename):
