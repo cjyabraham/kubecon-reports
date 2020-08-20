@@ -15,11 +15,6 @@ The generated custom reports will be in CSV format.
 | Red Hat  | Given 3 reports, determine which attendees are in all 3 reports. |
 | GitLab   | Given 2 reports, determine which attendees are in both reports.  |
 
-# Output Report Data
-| First Name | Last Name | Job Title | Company Name | Email            | Country | City     | State/Province | Postal Code | Address 1  | Address 2 | Address 3 | Company Size | Job Function | Industry |
-|------------|-----------|-----------|--------------|------------------|---------|----------|----------------|-------------|------------|-----------|-----------|--------------|--------------|----------|
-| John       | Doe       | Engineer  | example.com  | john@example.com | USA     | New York | NY             | 10021       | 123 Abc St | Apt 10Y   |           | 50 - 100     | Engineer     | IT       |
-
 
 # Environment Setup
 1. Checkout out the code by cloning the github repo: `git clone git@github.com:cjyabraham/kubecon-reports.git`
@@ -29,15 +24,10 @@ The generated custom reports will be in CSV format.
 5. Install the project's dependencies: `pip install --editable .`
 
 
-# CLI Usage
-After installing the project in your local environment the `genreport` command will be available. The `genreport` command has 2 required arguments:
-    1. input_files - a list of input CSV filenames
-    2. output_file - an output CSV filename generated from the input files.
-
-The project config file is `$PATH_TO_PROJECT/kubecon-reports/config.ini`. The config file used can be overriden using the `--config-file` CLI option.
+# Steps for processing raw CSVs
+1. Make sure all CSV files have the correct KEY_COLUMN label.  In the initial case it's `EMail_Address`.
+2. Remove any strange chars from the start of the files.
+3. run `genreport [main input file] [subsequent input files...] [output file]`. The main input file will provide all the required metadata about the user.  Subsequent input files are just searched for the existence of the email in the main input file.  The output file will contain the intersect of the set of all emails in each of the input files.
 
 Run `genreport --help` for more CLI usage info.
-
-
-
 
