@@ -10,7 +10,7 @@ KEY_COLUMN = 'EMail_Address'
 
 COLUMNS_IN_ORDER = ['First_Name', 'Last_Name', 'Job_Title', 'Company_Name',
                     KEY_COLUMN, 'Country', 'City', 'State_-_Prov', 'Postal_Code',
-                    'Address_1', 'Address_2', 'Address_3', 'Company_Size', 'Job_Function', 'Industry']
+                    'Address_1', 'Address_2', 'Address_3', 'Industry', 'Job_Function']
 
 def generate_report(config, input_filenames, output_csv_filename):
     click.echo('Reading input files: ' + ', '.join(input_filenames))
